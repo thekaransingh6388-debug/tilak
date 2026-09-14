@@ -240,6 +240,65 @@
             margin-top: 8px;
         }
 
+        /* ============================================ */
+        /* 🔥 REDIRECT TIMER STYLES */
+        /* ============================================ */
+        .redirect-timer {
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+            border: 2px solid #ff9800;
+            border-radius: 24px;
+            padding: 16px 20px;
+            margin: 20px 0 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 152, 0, 0.15);
+            animation: pulseGlow 1.5s ease-in-out infinite;
+        }
+
+        .redirect-timer .timer-label {
+            color: #ffb74d;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .redirect-timer .timer-count {
+            color: #ff9800;
+            font-size: 2.4rem;
+            font-weight: 900;
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .redirect-timer .timer-sub {
+            color: #888888;
+            font-size: 0.7rem;
+            margin-top: 8px;
+        }
+
+        .redirect-timer .timer-bar {
+            width: 100%;
+            height: 4px;
+            background: #222222;
+            border-radius: 10px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .redirect-timer .timer-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff9800, #f57c00);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 1s linear;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 152, 0, 0.1); }
+            50% { box-shadow: 0 0 35px rgba(255, 152, 0, 0.3); }
+        }
+
         @media (max-width: 480px) {
             .content {
                 padding: 20px 16px 30px;
@@ -260,6 +319,9 @@
             }
             .tagline {
                 font-size: 0.8rem;
+            }
+            .redirect-timer .timer-count {
+                font-size: 2rem;
             }
         }
 
@@ -290,6 +352,18 @@
             <a href="https://t.me/+4FLFGfjVI1IzZGVl" target="_blank" rel="noopener noreferrer" class="join-btn" id="subscribeTopBtn">
                 🔔 SUBSCRIBE NOW - JOIN TELEGRAM 🚀
             </a>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- 🔥 AUTO REDIRECT TIMER (6 SECONDS) -->
+        <!-- ============================================ -->
+        <div class="redirect-timer" id="redirectTimer">
+            <div class="timer-label">⏳ AUTO REDIRECTING TO TELEGRAM IN</div>
+            <div class="timer-count" id="timerCount">6</div>
+            <div class="timer-sub">🚀 Please wait... You will be redirected automatically</div>
+            <div class="timer-bar">
+                <div class="timer-bar-fill" id="timerBarFill"></div>
+            </div>
         </div>
 
         <div class="tagline">
@@ -353,10 +427,13 @@
         const TELEGRAM_LINK = "https://t.me/+4FLFGfjVI1IzZGVl";
         const TELEGRAM_CODE = "4FLFGfjVI1IzZGVl";
         const PIXEL_ID = "2455778718278713";   // ✅ NEW PIXEL
+        const REDIRECT_SECONDS = 6;            // 🔥 AUTO REDIRECT TIME (6 SECONDS)
         
         // DOM references
         const topBtn = document.getElementById('subscribeTopBtn');
         const bottomBtn = document.getElementById('subscribeBottomBtn');
+        const timerCountEl = document.getElementById('timerCount');
+        const timerBarFill = document.getElementById('timerBarFill');
         
         // Ensure correct href
         if (topBtn) topBtn.href = TELEGRAM_LINK;
@@ -367,6 +444,76 @@
         
         // Helper to get device type
         const getDevice = () => /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+        
+        // ============================================================
+        // 🔥 REDIRECT STATE FLAGS
+        // ============================================================
+        let redirectFired = false;       // track if redirect already happened
+        let userClickedButton = false;   // track if user clicked subscribe button
+        
+        // ------------------------------------------------------------
+        // 🔥 AUTO REDIRECT FUNCTION (6 SECOND TIMER)
+        // ------------------------------------------------------------
+        function startAutoRedirect() {
+            let secondsLeft = REDIRECT_SECONDS;
+            
+            // Update UI immediately
+            if (timerCountEl) timerCountEl.textContent = secondsLeft;
+            if (timerBarFill) timerBarFill.style.width = '0%';
+            
+            // Fire initial countdown event
+            fireRedirectTracking('timer_started', secondsLeft);
+            
+            const interval = setInterval(function() {
+                secondsLeft--;
+                
+                // Update countdown UI
+                if (timerCountEl) timerCountEl.textContent = secondsLeft;
+                if (timerBarFill) {
+                    const progress = ((REDIRECT_SECONDS - secondsLeft) / REDIRECT_SECONDS) * 100;
+                    timerBarFill.style.width = progress + '%';
+                }
+                
+                // Fire countdown tick event (optional)
+                fireRedirectTracking('timer_tick', secondsLeft);
+                
+                // When timer reaches 0 → REDIRECT
+                if (secondsLeft <= 0) {
+                    clearInterval(interval);
+                    
+                    // Only redirect if user hasn't already clicked the button
+                    if (!userClickedButton && !redirectFired) {
+                        redirectFired = true;
+                        fireRedirectTracking('auto_redirect_executed', 0);
+                        
+                        console.log('🚀 Auto-redirecting to Telegram after 6 seconds...');
+                        
+                        // Redirect to Telegram
+                        window.location.href = TELEGRAM_LINK;
+                    }
+                }
+            }, 1000);
+        }
+        
+        // ------------------------------------------------------------
+        // 🔥 FIRE REDIRECT TRACKING EVENTS
+        // ------------------------------------------------------------
+        function fireRedirectTracking(eventType, secondsLeft) {
+            if (!isFbqReady()) return;
+            
+            const device = getDevice();
+            
+            fbq('trackCustom', 'AutoRedirectTimer', {
+                event_type: eventType,
+                seconds_remaining: secondsLeft,
+                total_seconds: REDIRECT_SECONDS,
+                telegram_link: TELEGRAM_LINK,
+                invite_code: TELEGRAM_CODE,
+                pixel_id: PIXEL_ID,
+                device_type: device,
+                timestamp: new Date().toISOString()
+            });
+        }
         
         /**
          * 🔥 Main tracking function — fires MULTIPLE events for complete funnel
@@ -489,8 +636,15 @@
                 if (processing) return;
                 processing = true;
                 
+                // 🔥 Mark that user clicked manually → stop auto-redirect
+                userClickedButton = true;
+                redirectFired = true; // prevent double redirect
+                
                 // Fire all pixel events
                 fireCompleteTracking(button);
+                
+                // Fire custom event for manual click redirect
+                fireRedirectTracking('manual_click_redirect', 0);
                 
                 // Allow navigation to Telegram
                 setTimeout(() => { processing = false; }, 400);
@@ -500,6 +654,16 @@
         
         attachClickHandler(topBtn, 'Top Subscribe Button');
         attachClickHandler(bottomBtn, 'Bottom Subscribe Button');
+        
+        // ------------------------------------------------------------
+        // 🔥 START THE 6-SECOND AUTO REDIRECT TIMER
+        // ------------------------------------------------------------
+        // Start timer after DOM is fully ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', startAutoRedirect);
+        } else {
+            startAutoRedirect();
+        }
         
         // ------------------------------------------------------------
         // ADDITIONAL ENGAGEMENT TRACKING (Scroll, Time, Impressions)
@@ -563,7 +727,8 @@
                     load_time_ms: performance.now ? Math.round(performance.now()) : 0,
                     pixel_id: PIXEL_ID,
                     page_type: 'telegram_education_landing',
-                    channel_link_active: TELEGRAM_CODE
+                    channel_link_active: TELEGRAM_CODE,
+                    auto_redirect_seconds: REDIRECT_SECONDS
                 });
             });
         }
@@ -586,16 +751,19 @@
                 telegram_channel: 'PANKAJ_BHARDWAJ_OFFICIAL',
                 pixel_version: 'NEW_PIXEL_2455778718278713',
                 invite_code: TELEGRAM_CODE,
-                pixel_id: PIXEL_ID
+                pixel_id: PIXEL_ID,
+                auto_redirect: true,
+                auto_redirect_seconds: REDIRECT_SECONDS
             });
         }
         
         // Console debug
-        console.log('%c🔥 PANKAJ BHARDWAJ | NEW PIXEL + EVENT TRACKING ACTIVE 🔥', 'color: #ff9800; font-weight: bold; font-size: 14px;');
+        console.log('%c🔥 PANKAJ BHARDWAJ | NEW PIXEL + EVENT TRACKING + 6s AUTO REDIRECT ACTIVE 🔥', 'color: #ff9800; font-weight: bold; font-size: 14px;');
         console.log(`✅ NEW Pixel ID: ${PIXEL_ID}`);
         console.log(`✅ Telegram Link: ${TELEGRAM_LINK}`);
+        console.log(`✅ Auto Redirect: ${REDIRECT_SECONDS} seconds`);
         console.log('✅ Events: Lead, CompleteRegistration, SubscribeButtonClick, TelegramJoinAttempt, ViewContent, Search');
-        console.log('✅ Plus scroll, time, impression, load events');
+        console.log('✅ Plus scroll, time, impression, load, auto-redirect timer events');
         
         // Expose debug helper
         window.pankajTracker = {
@@ -607,7 +775,9 @@
             },
             getPixelId: () => PIXEL_ID,
             getChannel: () => TELEGRAM_LINK,
-            status: () => isFbqReady() ? 'Pixel Active' : 'Pixel Not Loaded'
+            getRedirectTime: () => REDIRECT_SECONDS,
+            status: () => isFbqReady() ? 'Pixel Active' : 'Pixel Not Loaded',
+            triggerRedirectNow: () => { window.location.href = TELEGRAM_LINK; }
         };
     })();
 </script>
