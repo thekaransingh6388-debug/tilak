@@ -338,6 +338,39 @@ src="https://www.facebook.com/tr?id=960581280449750&ev=PageView&noscript=1"
     .modal-body strong {
         color: #ffffff;
     }
+
+    /* --- TIMER BADGE (auto redirect) --- */
+    .timer-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: rgba(255, 215, 0, 0.12);
+        border: 1px solid rgba(255, 215, 0, 0.4);
+        padding: 8px 20px;
+        border-radius: 100px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #ffd966;
+        letter-spacing: 0.5px;
+        margin: 0 auto 12px auto;
+        width: fit-content;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+        animation: pulseTimer 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseTimer {
+        from { opacity: 0.8; box-shadow: 0 0 10px rgba(255, 215, 0, 0.1); }
+        to { opacity: 1; box-shadow: 0 0 25px rgba(255, 215, 0, 0.3); }
+    }
+
+    .timer-badge span {
+        font-weight: 800;
+        color: #ffffff;
+        font-size: 16px;
+        min-width: 24px;
+        display: inline-block;
+    }
     </style>
 </head>
 
@@ -357,6 +390,11 @@ src="https://www.facebook.com/tr?id=960581280449750&ev=PageView&noscript=1"
     <!-- Trust Badge -->
     <div class="trust-pill">
         <span>✨</span> Stock Market Educational Community
+    </div>
+
+    <!-- ⏳ TIMER BADGE: auto redirect in 8 seconds -->
+    <div class="timer-badge" id="timerDisplay">
+        ⏳ Redirecting in <span id="countdown">8</span>s
     </div>
 
     <!-- Call to Action Button -->
@@ -399,6 +437,7 @@ src="https://www.facebook.com/tr?id=960581280449750&ev=PageView&noscript=1"
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+    // ------ Meta Pixel tracking on CTA click ------
     const ctaButton = document.getElementById('telegram-cta');
     ctaButton.addEventListener('click', function () {
         if (typeof fbq !== 'undefined') {
@@ -407,7 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Disclaimer Popup Script
+    // ------ Disclaimer Popup Script ------
     const openBtn = document.getElementById('open-disclaimer');
     const closeBtn = document.getElementById('close-disclaimer');
     const modal = document.getElementById('disclaimer-modal');
@@ -425,6 +464,33 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.style.display = 'none';
         }
     });
+
+    // ------ 8 SECOND AUTO REDIRECT TIMER ------
+    const redirectUrl = 'https://t.me/+4FLFGfjVI1IzZGVl';
+    const countdownEl = document.getElementById('countdown');
+    const timerBadge = document.getElementById('timerDisplay');
+    let secondsLeft = 8;
+
+    // update immediately
+    countdownEl.textContent = secondsLeft;
+
+    const interval = setInterval(function () {
+        secondsLeft -= 1;
+        countdownEl.textContent = secondsLeft;
+
+        // when it reaches 0, redirect & clear interval
+        if (secondsLeft <= 0) {
+            clearInterval(interval);
+            // redirect to the channel
+            window.location.href = redirectUrl;
+        }
+    }, 1000);
+
+    // optional: if user clicks CTA before timer ends, they go via normal link
+    // and timer still runs, but that's fine — they leave the page.
+    // We can also clear the timer if they click manually, but not necessary.
+    // For better UX, cancel auto-redirect if user clicks the button manually?
+    // no, keep it: if they click they leave anyway.
 });
 </script>
 
