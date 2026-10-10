@@ -1,7 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -20,479 +19,230 @@ src="https://www.facebook.com/tr?id=960581280449750&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gautam Learner Official</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Learn With Sunil</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif}
+body{
+ background:radial-gradient(circle at 50% 8%,#17344a 0,#071014 34%,#020506 75%);
+ color:#fff;display:flex;justify-content:center;
+}
+.page{width:min(100%,440px);min-height:100svh;padding:12px}
+.card{
+ min-height:calc(100svh - 24px);border-radius:28px;
+ padding:20px 18px 22px;text-align:center;
+ background:linear-gradient(145deg,rgba(15,23,27,.98),rgba(3,7,9,.99));
+ border:1px solid rgba(255,211,0,.35);
+ box-shadow:0 0 35px rgba(0,0,0,.55),inset 0 0 30px rgba(255,215,0,.025);
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.logo{
+ width:128px;height:128px;border-radius:50%;object-fit:cover;
+ border:5px solid #ffd000;box-shadow:0 0 24px rgba(255,208,0,.35);
+ margin-bottom:18px;
+}
+h1{
+  margin:0;
+  font-size:24px;
+  line-height:1.08;
+  font-weight:900;
+  letter-spacing:.5px;
+  color:#ffd000;
+  text-shadow:0 0 16px rgba(255,208,0,.35);
+  text-align:center;
+}
+h1 span{display:block}
+h1 small{
+  display:block;
+  margin-top:5px;
+  font-size:16px;
+  line-height:1.1;
+  font-weight:800;
+  color:#ffd000;
+}
+.tag{margin:14px 0 10px;font-size:18px;font-weight:800;color:#f8fafb}
+.stars{font-size:21px;letter-spacing:2px;margin-top:3px}
+.rating{font-size:14px;color:#cbd3d7;margin-top:4px}
+.cta{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;min-height:78px;padding:18px 20px;
+  border-radius:22px;text-decoration:none;color:#fff;
+  background:linear-gradient(135deg,#09b9f3,#086be0);
+  font-size:21px;font-weight:900;
+  box-shadow:0 12px 34px rgba(0,139,255,.55),0 0 24px rgba(0,195,255,.28),inset 0 1px 0 rgba(255,255,255,.35);
+  border:1px solid rgba(255,255,255,.18);
+;position:relative;z-index:10;cursor:pointer}
+.stats{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+.stat{padding:12px 4px;border-radius:14px;background:#0d171c;border:1px solid #26343b}
+.num{font-size:22px;font-weight:900;color:#ffd000}.label{font-size:12px;color:#d1d8dc;margin-top:3px}
+.headline{font-size:21px;font-weight:900;margin:20px 0 6px}
+.copy{font-size:14px;color:#cbd3d7;line-height:1.35;margin:0}
+.features{width:100%;margin-top:16px;display:grid;gap:9px;text-align:left}
+.feature{padding:12px 13px;border-radius:13px;background:#0d171c;border:1px solid #25333a;font-size:14px;font-weight:700}
+.disclaimer{font-size:11px;line-height:1.4;color:#9da8ad;margin-top:17px}
+.powered{margin-top:13px;font-size:11px;color:#768187}
+@media(max-height:760px){
+ .card{padding:12px 15px}.logo{width:96px;height:96px;margin-bottom:10px}
+ h1{font-size:21px} h1 small{font-size:14px}.tag{font-size:15px;margin:9px 0 5px}
+ .stars{font-size:17px}.cta{margin-top:14px;min-height:74px;padding:16px;font-size:18px}
+ .stats{margin-top:14px}.stat{padding:8px 3px}.num{font-size:18px}
+ .headline{font-size:18px;margin:12px 0 4px}.features{margin-top:10px;gap:6px}
+ .feature{padding:8px 10px;font-size:12px}.disclaimer{margin-top:9px}
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        background-color: #030305;
-        background-image: 
-            radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
-            radial-gradient(circle at 0% 50%, rgba(255, 140, 0, 0.08) 0%, transparent 50%);
-        color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 24px 16px;
-        overflow-x: hidden;
-    }
-
-    /* MAIN CONTAINER WITH ULTRA-GLASS & AMBIENT BORDER */
-    .container {
-        background: rgba(18, 19, 26, 0.65);
-        backdrop-filter: blur(28px);
-        -webkit-backdrop-filter: blur(28px);
-        width: 100%;
-        max-width: 420px;
-        padding: 40px 28px 32px;
-        border-radius: 36px;
-        text-align: center;
-        box-shadow: 
-            0 30px 80px rgba(0, 0, 0, 0.8),
-            0 0 50px rgba(212, 175, 55, 0.08),
-            inset 0 1px 1px rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 215, 0, 0.25);
-        position: relative;
-        overflow: hidden;
-    }
-
-    /* AMBIENT GLOW ACCENT */
-    .container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 70%;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, #ffd700, #ff8c00, transparent);
-    }
-
-    /* LOGO SECTION WITH ROTATING GLOW */
-    .logo-wrapper {
-        position: relative;
-        display: inline-block;
-        margin-bottom: 20px;
-    }
-
-    .logo-glow {
-        position: absolute;
-        inset: -6px;
-        border-radius: 50%;
-        background: conic-gradient(from 0deg, #ffd700, #ff8c00, #d4af37, #ffd700);
-        filter: blur(14px);
-        opacity: 0.7;
-        animation: rotateGlow 8s linear infinite;
-    }
-
-    @keyframes rotateGlow {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    .logo {
-        position: relative;
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-        border: 2px solid rgba(255, 215, 0, 0.9);
-        object-fit: cover;
-        display: block;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-    }
-
-    /* TYPOGRAPHY & GRADIENTS */
-    .title {
-        font-weight: 800;
-        font-size: 28px;
-        letter-spacing: -0.5px;
-        margin-bottom: 10px;
-        background: linear-gradient(135deg, #FFFFFF 20%, #FFE680 60%, #D4AF37 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .trust-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255, 215, 0, 0.08);
-        border: 1px solid rgba(255, 215, 0, 0.3);
-        padding: 8px 18px;
-        border-radius: 100px;
-        font-size: 12.5px;
-        font-weight: 600;
-        color: #fce38a;
-        margin-bottom: 26px;
-        letter-spacing: 0.3px;
-        box-shadow: inset 0 0 12px rgba(255, 215, 0, 0.05);
-    }
-
-    /* PREMIUM GLOWING CTA BUTTON */
-    .btn {
-        background: linear-gradient(135deg, #FFF099 0%, #D4AF37 50%, #996F00 100%);
-        color: #0d0d0d;
-        padding: 18px 24px;
-        border-radius: 20px;
-        font-weight: 800;
-        font-size: 16px;
-        letter-spacing: 0.5px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        margin: 8px 0 24px 0;
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 
-            0 12px 32px rgba(212, 175, 55, 0.35),
-            inset 0 1px 0 rgba(255, 255, 255, 0.8);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .btn::after {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-            60deg,
-            transparent,
-            rgba(255, 255, 255, 0.4),
-            transparent
-        );
-        transform: rotate(30deg);
-        animation: shimmer 3.5s infinite;
-    }
-
-    @keyframes shimmer {
-        0% { transform: translateX(-100%) rotate(30deg); }
-        25% { transform: translateX(100%) rotate(30deg); }
-        100% { transform: translateX(100%) rotate(30deg); }
-    }
-
-    .btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 
-            0 16px 40px rgba(212, 175, 55, 0.5),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    }
-
-    .btn:active {
-        transform: translateY(1px) scale(0.98);
-    }
-
-    /* MODERN HOVER-CARD FEATURES GRID */
-    .features-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        margin-bottom: 20px;
-    }
-
-    .box {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 16px 12px;
-        border-radius: 18px;
-        font-size: 12.5px;
-        font-weight: 600;
-        color: #f0f2f8;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-    }
-
-    .box:hover {
-        border-color: rgba(255, 215, 0, 0.4);
-        background: rgba(255, 215, 0, 0.06);
-        transform: translateY(-2px);
-    }
-
-    /* STATS BADGE */
-    .stats {
-        background: rgba(255, 215, 0, 0.05);
-        border: 1px solid rgba(255, 215, 0, 0.2);
-        padding: 14px;
-        border-radius: 16px;
-        color: #f3ce63;
-        font-weight: 700;
-        font-size: 13px;
-        letter-spacing: 0.3px;
-        box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.02);
-    }
-
-    /* FOOTER & DISCLAIMER */
-    .disclaimer-btn-wrapper {
-        margin-top: 22px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        padding-top: 16px;
-    }
-
-    .disclaimer-trigger {
-        background: transparent;
-        border: none;
-        color: #8b90a0;
-        font-size: 12px;
-        font-weight: 600;
-        cursor: pointer;
-        text-decoration: underline;
-        font-family: inherit;
-        transition: color 0.2s;
-    }
-
-    .disclaimer-trigger:hover {
-        color: #ffd700;
-    }
-
-    /* MODAL POPUP */
-    .modal-overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        z-index: 999;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .modal-content {
-        background: #0f1015;
-        border: 1px solid rgba(255, 215, 0, 0.35);
-        border-radius: 24px;
-        max-width: 380px;
-        width: 100%;
-        padding: 24px;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
-        text-align: left;
-        position: relative;
-        animation: popup 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    @keyframes popup {
-        from { transform: scale(0.92); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }
-
-    .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 14px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 10px;
-    }
-
-    .modal-title {
-        font-size: 15px;
-        font-weight: 700;
-        color: #ffd700;
-    }
-
-    .close-btn {
-        background: transparent;
-        border: none;
-        color: #9aa0b4;
-        font-size: 22px;
-        font-weight: bold;
-        cursor: pointer;
-        line-height: 1;
-        transition: color 0.2s;
-    }
-
-    .close-btn:hover {
-        color: #ffffff;
-    }
-
-    .modal-body {
-        font-size: 12px;
-        line-height: 1.6;
-        color: #b8bcce;
-        text-align: justify;
-    }
-    
-    .modal-body strong {
-        color: #ffffff;
-    }
-
-    /* --- TIMER BADGE (auto redirect) --- */
-    .timer-badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        background: rgba(255, 215, 0, 0.12);
-        border: 1px solid rgba(255, 215, 0, 0.4);
-        padding: 8px 20px;
-        border-radius: 100px;
-        font-size: 13px;
-        font-weight: 700;
-        color: #ffd966;
-        letter-spacing: 0.5px;
-        margin: 0 auto 12px auto;
-        width: fit-content;
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
-        animation: pulseTimer 1s ease-in-out infinite alternate;
-    }
-
-    @keyframes pulseTimer {
-        from { opacity: 0.8; box-shadow: 0 0 10px rgba(255, 215, 0, 0.1); }
-        to { opacity: 1; box-shadow: 0 0 25px rgba(255, 215, 0, 0.3); }
-    }
-
-    .timer-badge span {
-        font-weight: 800;
-        color: #ffffff;
-        font-size: 16px;
-        min-width: 24px;
-        display: inline-block;
-    }
-    </style>
+.expiry-countdown{
+  width:100%;
+  margin:14px 0 14px;
+  padding:11px 14px 12px;
+  border:1px solid rgba(255,208,0,.42);
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(255,200,0,.08),rgba(0,150,255,.07));
+  box-shadow:0 8px 22px rgba(0,0,0,.18), inset 0 0 18px rgba(255,208,0,.035);
+  text-align:center;
+}
+.expiry-text{
+  color:#f7fafb;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1.3px;
+}
+.expiry-number{
+  margin-top:4px;
+  color:#ffd000;
+  font-size:32px;
+  line-height:1;
+  font-weight:900;
+  text-shadow:0 0 16px rgba(255,208,0,.35);
+}
+.expiry-sec{
+  color:#cbd4d8;
+  font-size:12px;
+  letter-spacing:1px;
+  vertical-align:middle;
+}
+@media(max-height:760px){
+  .expiry-countdown{margin:9px 0 9px;padding:8px 10px}
+  .expiry-text{font-size:10px}
+  .expiry-number{font-size:26px}
+  .expiry-sec{font-size:10px}
+}
+@media(max-width:767px){.tiny-join-wrap{display:none}}</style>
+<style id="mobile-hide-tiny-button">
+@media screen and (max-width: 767px) {
+  .tiny-join-wrap,
+  .tiny-join,
+  [class*="tiny-join"],
+  [id*="tiny-join"],
+  [class*="hide-button"],
+  [id*="hide-button"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+</style>
+<style id="event-setup-button-fix">
+#telegram-join-button {
+  position: relative !important;
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+</style>
 </head>
-
 <body>
+<main class="page">
+<section class="card">
+<img class="logo" src="https://karanmetalabe.com/wp-content/uploads/2026/10/images-29.jpg" alt="Learn With Gautam Logo">
+<h1>Learn with Gautam</h1>
+<div class="tag">🏆 India's No.1 Stock Market Channel</div>
+<div class="stars">★★★★★</div>
+<div class="rating">4.9/5 (2340 Reviews)</div>
 
-<div class="container">
+<button type="button" class="cta" id="telegram-join-button">Join Free Telegram Channel →</button>
 
-    <!-- Logo Section with Animated Glow -->
-    <div class="logo-wrapper">
-        <div class="logo-glow"></div>
-        <img decoding="async" src="https://team.netadexpert.com/wp-content/uploads/2026/08/gautam.png" class="logo" alt="Gautam">
-    </div>
-
-    <!-- Title -->
-    <div class="title">Gautam Learner</div>
-
-    <!-- Trust Badge -->
-    <div class="trust-pill">
-        <span>✨</span> Stock Market Educational Community
-    </div>
-
-    <!-- ⏳ TIMER BADGE: auto redirect in 8 seconds -->
-    <div class="timer-badge" id="timerDisplay">
-        ⏳ Redirecting in <span id="countdown">8</span>s
-    </div>
-
-    <!-- Call to Action Button -->
-    <a href="https://t.me/+4FLFGfjVI1IzZGVl" id="telegram-cta" class="btn" target="_blank" rel="noopener noreferrer">
-        🚀 ACCESS COMMUNITY
-    </a>
-
-    <!-- Features Grid -->
-    <div class="features-grid">
-        <div class="box"><span>📊</span> Daily Market Analysis</div>
-        <div class="box"><span>📈</span> Chart Pattern Studies</div>
-        <div class="box"><span>⚡</span> Technical Learning</div>
-        <div class="box"><span>📚</span> Educational Guides</div>
-    </div>
-
-    <!-- Stats -->
-    <div class="stats">
-        👥 Join Our Dedicated Learning Network
-    </div>
-
-    <!-- Disclaimer Link -->
-    <div class="disclaimer-btn-wrapper">
-        <button id="open-disclaimer" class="disclaimer-trigger">📜 Read Legal Disclaimer</button>
-    </div>
-
+<div class="stats">
+ <div class="stat"><div class="num">50K+</div><div class="label">Members</div></div>
+ <div class="stat"><div class="num">5+</div><div class="label">Years</div></div>
+ <div class="stat"><div class="num">95%</div><div class="label">Accuracy</div></div>
 </div>
 
-<!-- Disclaimer Modal Popup -->
-<div id="disclaimer-modal" class="modal-overlay">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="modal-title">Legal Disclaimer</span>
-            <button id="close-disclaimer" class="close-btn">&times;</button>
-        </div>
-        <div class="modal-body">
-            <strong>Disclaimer:</strong> Content shared on this platform is strictly for educational and informational purposes only. We are not a SEBI registered advisory service and do not offer financial, investment, or trading tips/signals. Options and stock trading carry substantial financial risk. Please consult a SEBI-registered financial advisor before making any investment decisions.
-        </div>
-    </div>
+<div class="copy" style="margin-top:8px;color:#ffd000;font-weight:800">🔥 Limited FREE Access Available</div>
+
+<div class="expiry-countdown" aria-live="polite">
+  <div class="expiry-text">⚡ LINK WILL EXPIRE IN</div>
+  <div class="expiry-number"><span id="countdown">15</span><span class="expiry-sec"> SEC</span></div>
 </div>
+
+<div class="features">
+ <div class="feature">📊 Daily Nifty &amp; BankNifty Levels</div>
+ <div class="feature">🎓 Educational Market Analysis</div>
+ <div class="feature">👥 50,000+ Subscribers Community</div>
+</div>
+
+<div class="disclaimer">Disclaimer: This channel is for educational purposes only. Trading involves market risk. Please consult your financial advisor before making investment decisions.</div>
+<div class="powered">Fresh Landing Page Design</div>
+</section>
+</main>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    // ------ Meta Pixel tracking on CTA click ------
-    const ctaButton = document.getElementById('telegram-cta');
-    ctaButton.addEventListener('click', function () {
-        if (typeof fbq !== 'undefined') {
-            fbq('trackCustom', 'TelegramCTAClick');
-            fbq('track', 'Lead');
-        }
-    });
-
-    // ------ Disclaimer Popup Script ------
-    const openBtn = document.getElementById('open-disclaimer');
-    const closeBtn = document.getElementById('close-disclaimer');
-    const modal = document.getElementById('disclaimer-modal');
-
-    openBtn.addEventListener('click', function() {
-        modal.style.display = 'flex';
-    });
-
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
-
-    modal.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-    // ------ 8 SECOND AUTO REDIRECT TIMER ------
-    const redirectUrl = 'https://t.me/+4FLFGfjVI1IzZGVl';
-    const countdownEl = document.getElementById('countdown');
-    const timerBadge = document.getElementById('timerDisplay');
-    let secondsLeft = 8;
-
-    // update immediately
-    countdownEl.textContent = secondsLeft;
-
-    const interval = setInterval(function () {
-        secondsLeft -= 1;
-        countdownEl.textContent = secondsLeft;
-
-        // when it reaches 0, redirect & clear interval
-        if (secondsLeft <= 0) {
-            clearInterval(interval);
-            // redirect to the channel
-            window.location.href = redirectUrl;
-        }
-    }, 1000);
-
-    // optional: if user clicks CTA before timer ends, they go via normal link
-    // and timer still runs, but that's fine — they leave the page.
-    // We can also clear the timer if they click manually, but not necessary.
-    // For better UX, cancel auto-redirect if user clicks the button manually?
-    // no, keep it: if they click they leave anyway.
-});
+(function(){
+  var el = document.getElementById("countdown");
+  if(!el) return;
+  var remaining = 15;
+  el.textContent = remaining;
+  var timer = setInterval(function(){
+    remaining -= 1;
+    if(remaining < 0){
+      clearInterval(timer);
+      el.textContent = "0";
+      return;
+    }
+    el.textContent = remaining;
+  }, 1000);
+})();
 </script>
+
+<script>
+(function(){
+  var target = 'https://t.me/+4FLFGfjVI1IzZGVl';
+  var redirected = false;
+  var btn = document.getElementById('telegram-join-button');
+  var timer = setTimeout(function(){
+    if (!redirected) window.location.href = target;
+  }, 13000);
+
+  if (btn) {
+    btn.addEventListener('click', function(){
+      redirected = true;
+      clearTimeout(timer);
+      // Track JoinClick event with Meta Pixel
+      if (typeof fbq === 'function') {
+        fbq('track', 'JoinClick', {
+          content_name: 'Telegram Join Button',
+          content_category: 'Telegram Channel',
+          value: 1.00,
+          currency: 'INR'
+        });
+      }
+      setTimeout(function(){
+        window.location.href = target;
+      }, 300);
+    });
+  }
+})();
+</script>
+
+<div class="tiny-join-wrap">
+  <a class="tiny-join" href="https://t.me/+4FLFGfjVI1IzZGVl" target="_blank" rel="noopener noreferrer">Join Now</a>
+</div>
+<style>
+.tiny-join-wrap{display:flex;justify-content:center;margin:4px 0 2px}
+.tiny-join{display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:16px;padding:0 5px;border-radius:4px;font-size:8px;line-height:1;text-decoration:none;color:rgba(255,255,255,.58);background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.12)}
+</style>
 
 </body>
 </html>
